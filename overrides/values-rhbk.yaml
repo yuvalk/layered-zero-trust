@@ -1,2 +1,4 @@
 chartIngress: true
-hostname: ""
+hostname: 
+  hostname: ""
+  strict: false
