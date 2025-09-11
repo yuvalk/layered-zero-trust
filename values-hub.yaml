@@ -15,6 +15,7 @@ clusterGroup:
     - vault
     - qtodo
     - golang-external-secrets
+    - letsencrypt
     - keycloak-system:
         operatorGroup: true
         targetNamespace: keycloak-system
@@ -118,6 +119,15 @@ clusterGroup:
       namespace: cert-manager-operator
       project: hub
       path: charts/certmanager
+    letsencrypt:
+      name: letsencrypt
+      namespace: letsencrypt
+      project: hub
+      path: charts/all/letsencrypt
+      # Default to 'safe' for ARO
+      overrides:
+      - name: letsencrypt.enabled
+        value: true
     zero-trust-workload-identity-manager:
       name: zero-trust-workload-identity-manager
       namespace: zero-trust-workload-identity-manager
